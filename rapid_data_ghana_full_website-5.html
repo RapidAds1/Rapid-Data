@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rapid Data Ghana</title>
+<style>
+:root{--blue:#0757d9;--dark:#071a35;--bg:#f4f7fb;--card:#fff;--muted:#68758a;--line:#dfe6ef;--green:#159447}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--dark)}
+a{text-decoration:none;color:inherit}.nav{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.navin{max-width:1120px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:900;color:var(--blue)}.navlinks{display:flex;gap:22px;font-size:14px;font-weight:700}
+.btn{border:0;border-radius:11px;padding:12px 17px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:#fff}.outline{background:#fff;border:1px solid var(--line)}
+.hero{background:linear-gradient(135deg,#071a35,#0757d9);color:white;padding:70px 20px}
+.hero-in{max-width:1120px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:35px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,66px);line-height:1.02;margin:0 0 18px}.hero p{font-size:18px;line-height:1.6;max-width:650px;opacity:.9}
+.hero-card{background:#fff;color:var(--dark);border-radius:22px;padding:24px;box-shadow:0 20px 60px #0004}.hero-card h3{margin-top:0}
+.container{max-width:1120px;margin:auto;padding:48px 20px}.section-title{text-align:center;margin-bottom:28px}.section-title h2{font-size:32px;margin:0 0 8px}.muted{color:var(--muted)}
+.networks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.net{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;cursor:pointer;transition:.2s}.net:hover{transform:translateY(-3px);box-shadow:0 10px 30px #071a3512}.net strong{font-size:20px}.dot{width:45px;height:45px;border-radius:14px;background:#eef4ff;display:grid;place-items:center;font-weight:900;color:var(--blue);margin-bottom:15px}
+.shop{display:grid;grid-template-columns:250px 1fr;gap:20px}.side,.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{padding:10px 13px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700}.tab.active{background:#eaf1ff;border-color:#9bbcf8;color:var(--blue)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.product{border:1px solid var(--line);border-radius:15px;padding:18px}.product h3{margin:0 0 8px}.price{font-size:25px;font-weight:900}.product button{width:100%;margin-top:14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.feature h3{margin:8px 0}
+.checkout{display:grid;grid-template-columns:1fr 340px;gap:20px}.formrow{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{font-weight:800;font-size:13px;display:block;margin:14px 0 7px}input,select{width:100%;padding:13px;border:1px solid var(--line);border-radius:10px;font-size:15px;background:#fff}.summary{background:#f5f8fc;border-radius:13px;padding:16px;line-height:1.9}.status{padding:13px;border-radius:10px;background:#eaf8ef;color:#176b38;margin-top:15px;display:none}
+footer{background:#071a35;color:white;padding:35px 20px}.footerin{max-width:1120px;margin:auto;display:flex;justify-content:space-between;gap:20px}.small{font-size:13px;color:#9fb0c8}
+.admin{background:#fff;border:1px dashed #b9c5d6;border-radius:18px;padding:20px}.orders{width:100%;border-collapse:collapse}.orders th,.orders td{text-align:left;padding:12px;border-bottom:1px solid var(--line);font-size:13px}
+.hidden{display:none}@media(max-width:800px){.hero-in,.checkout,.shop{grid-template-columns:1fr}.networks,.features{grid-template-columns:1fr}.products{grid-template-columns:1fr 1fr}.navlinks{display:none}}@media(max-width:500px){.products,.formrow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="navin">
+<a class="logo" href="#home">RAPID DATA</a>
+<div class="navlinks"><a href="#buy">Buy Data</a><a href="#how">How It Works</a><a href="#track">Track Order</a></div>
+<a class="btn primary" href="#buy">Buy Now</a>
+</div></nav>
+
+<section class="hero" id="home"><div class="hero-in">
+<div><div class="small">GHANA DATA BUNDLES</div><h1>Buy data quickly from one place.</h1>
+<p>Choose your network, select a bundle, enter the recipient number and continue to payment. This prototype is designed to connect to real payment and telecom APIs.</p>
+<a class="btn primary" href="#buy">Start Buying</a></div>
+<div class="hero-card"><h3>Why Rapid Data?</h3><p>✓ Multiple networks in one website</p><p>✓ Simple mobile-first checkout</p><p>✓ Order tracking structure</p><p>✓ Ready for API integration</p></div>
+</div></section>
+
+<section class="container" id="networks"><div class="section-title"><h2>Choose your network</h2><p class="muted">All three networks can live inside one website.</p></div>
+<div class="networks">
+<div class="net" onclick="chooseNetwork('MTN')"><div class="dot">M</div><strong>MTN</strong><p class="muted">Choose an MTN bundle.</p></div>
+<div class="net" onclick="chooseNetwork('Telecel')"><div class="dot">T</div><strong>Telecel</strong><p class="muted">Choose a Telecel bundle.</p></div>
+<div class="net" onclick="chooseNetwork('AirtelTigo')"><div class="dot">A</div><strong>AirtelTigo</strong><p class="muted">Choose an AirtelTigo bundle.</p></div>
+</div></section>
+
+<section class="container" id="buy"><div class="section-title"><h2>Buy a bundle</h2><p class="muted">Select a network and package.</p></div>
+<div class="shop"><aside class="side"><h3>Networks</h3><div class="tabs" id="networkTabs">
+<button class="tab active" onclick="chooseNetwork('MTN')">MTN</button><button class="tab" onclick="chooseNetwork('Telecel')">Telecel</button><button class="tab" onclick="chooseNetwork('AirtelTigo')">AirtelTigo</button></div><hr><p class="small">Prices below are demo prices. Replace them with your actual supplier prices.</p></aside>
+<div class="panel"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><h3 id="catalogTitle">MTN bundles</h3><span class="small" id="catalogCount"></span></div><div class="products" id="products"></div></div></div></section>
+
+<section class="container" id="checkout"><div class="section-title"><h2>Checkout</h2><p class="muted">Enter the recipient details.</p></div>
+<div class="checkout"><div class="panel">
+<div class="formrow"><div><label>Recipient number</label><input id="phone" placeholder="0241234567" inputmode="numeric"></div><div><label>Network</label><input id="networkInput" value="MTN" readonly></div></div>
+<label>Selected bundle</label><input id="bundleInput" value="1GB" readonly>
+<label>Payment method</label><select id="payment"><option>Mobile Money</option><option>Card</option></select>
+<button class="btn primary" style="width:100%;margin-top:18px" onclick="placeOrder()">Continue to Payment</button>
+<div class="status" id="checkoutStatus"></div>
+</div>
+<div class="panel"><h3>Order summary</h3><div class="summary"><b>Network:</b> <span id="sumNetwork">MTN</span><br><b>Bundle:</b> <span id="sumBundle">1GB</span><br><b>Price:</b> GH₵<span id="sumPrice">5.00</span></div><p class="small">In production, this button will create a secure payment request and only after confirmed payment will the backend call the selected network supplier API.</p></div></div></section>
+
+<section class="container" id="how"><div class="section-title"><h2>How the real system works</h2><p class="muted">The website is only the customer-facing layer.</p></div>
+<div class="features"><div class="feature"><h3>1. Customer</h3><p>Customer chooses MTN, Telecel or AirtelTigo and a bundle.</p></div><div class="feature"><h3>2. Payment</h3><p>Your payment provider confirms the transaction.</p></div><div class="feature"><h3>3. API delivery</h3><p>Your secure backend calls the appropriate supplier API and records the result.</p></div></div></section>
+
+<section class="container" id="track"><div class="section-title"><h2>Track an order</h2><p class="muted">Prototype order lookup.</p></div><div class="panel" style="max-width:650px;margin:auto"><label>Order ID</label><input id="orderId" placeholder="e.g. RD-10001"><button class="btn primary" onclick="trackOrder()">Track Order</button><div class="status" id="trackStatus"></div></div></section>
+
+<section class="container"><div class="section-title"><h2>Admin dashboard preview</h2><p class="muted">A starting point for managing orders.</p></div><div class="admin"><table class="orders"><thead><tr><th>Order</th><th>Network</th><th>Bundle</th><th>Status</th></tr></thead><tbody id="orders"><tr><td>RD-10001</td><td>MTN</td><td>5GB</td><td>Demo</td></tr><tr><td>RD-10002</td><td>Telecel</td><td>2GB</td><td>Demo</td></tr></tbody></table></div></section>
+
+<footer><div class="footerin"><div><b>RAPID DATA</b><p class="small">Ghana data-bundle platform prototype.</p></div><div class="small">© 2026 Rapid Data. Prototype — payment/API integrations pending.</div></div></footer>
+
+<script>
+const bundles={
+ MTN:[['1GB','5.00'],['2GB','10.00'],['3GB','15.00'],['5GB','25.00'],['10GB','50.00'],['20GB','100.00']],
+ Telecel:[['1GB','5.00'],['2GB','10.00'],['3GB','15.00'],['5GB','25.00'],['10GB','50.00'],['20GB','100.00']],
+ AirtelTigo:[['1GB','5.00'],['2GB','10.00'],['3GB','15.00'],['5GB','25.00'],['10GB','50.00'],['20GB','100.00']]
+};
+let currentNetwork='MTN',selected={size:'1GB',price:'5.00'};
+function chooseNetwork(n){
+ currentNetwork=n;
+ document.getElementById('catalogTitle').textContent=n+' bundles';
+ document.getElementById('networkInput').value=n;
+ document.getElementById('sumNetwork').textContent=n;
+ document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.textContent===n));
+ renderProducts();
+}
+function renderProducts(){
+ const list=bundles[currentNetwork], box=document.getElementById('products');
+ document.getElementById('catalogCount').textContent=list.length+' packages';
+ box.innerHTML=list.map((b,i)=>`<div class="product"><h3>${b[0]}</h3><div class="price">GH₵${b[1]}</div><button class="btn primary" onclick="selectBundle('${b[0]}','${b[1]}')">Select</button></div>`).join('');
+}
+function selectBundle(size,price){
+ selected={size,price};
+ document.getElementById('bundleInput').value=size;
+ document.getElementById('sumBundle').textContent=size;
+ document.getElementById('sumPrice').textContent=price;
+ document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
+}
+function placeOrder(){
+ const phone=document.getElementById('phone').value.trim();
+ const s=document.getElementById('checkoutStatus');
+ s.style.display='block';
+ if(!/^0\\d{9}$/.test(phone)){s.style.background='#fff1f1';s.style.color='#a32626';s.textContent='Please enter a valid Ghanaian 10-digit number.';return;}
+ s.style.background='#eaf8ef';s.style.color='#176b38';
+ s.textContent='Demo checkout created. Connect your payment provider and supplier API to complete the real transaction.';
+}
+function trackOrder(){
+ const id=document.getElementById('orderId').value.trim();
+ const s=document.getElementById('trackStatus');s.style.display='block';
+ s.textContent=id?'Demo status: order '+id+' is ready for backend tracking integration.':'Enter an order ID.';
+}
+renderProducts();
+</script>
+</body>
+</html>
