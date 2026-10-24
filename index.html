@@ -103,7 +103,7 @@ function placeOrder(){
  const phone=document.getElementById('phone').value.trim();
  const s=document.getElementById('checkoutStatus');
  s.style.display='block';
- if(!/^0\\d{9}$/.test(phone)){s.style.background='#fff1f1';s.style.color='#a32626';s.textContent='Please enter a valid Ghanaian 10-digit number.';return;}
+ if (!/^0[0-9]{9}$/.test(phone)) {s.style.background='#fff1f1';s.style.color='#a32626';s.textContent='Please enter a valid Ghanaian 10-digit number.';return;}
  s.style.background='#eaf8ef';s.style.color='#176b38';
  s.textContent='Demo checkout created. Connect your payment provider and supplier API to complete the real transaction.';
 }
