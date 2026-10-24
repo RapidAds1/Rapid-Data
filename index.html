@@ -100,12 +100,54 @@ function selectBundle(size,price){
  document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
 }
 async function placeOrder() {
- const phone=document.getElementById('phone').value.trim();
- const s=document.getElementById('checkoutStatus');
- s.style.display='block';
- if (!/^0[0-9]{9}$/.test(phone)) {s.style.background='#fff1f1';s.style.color='#a32626';s.textContent='Please enter a valid Ghanaian 10-digit number.';return;}
- s.style.background='#eaf8ef';s.style.color='#176b38';
- s.textContent='Demo checkout created. Connect your payment provider and supplier API to complete the real transaction.';
+  const phone = document.getElementById('phone').value.trim();
+  const s = document.getElementById('checkoutStatus');
+
+  s.style.display = 'block';
+
+  if (!/^0[0-9]{9}$/.test(phone)) {
+    s.style.background = '#fff1f1';
+    s.style.color = '#a32626';
+    s.textContent = 'Please enter a valid Ghanaian 10-digit number.';
+    return;
+  }
+
+  s.style.background = '#fff8e1';
+  s.style.color = '#795500';
+  s.textContent = 'Sending test order...';
+
+  try {
+    const response = await fetch(
+      'https://rapid-data-backend.onrender.com/api/orders',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          network: currentNetwork,
+          bundle: selected.size,
+          phone: phone
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || 'Order request failed.');
+    }
+
+    s.style.background = '#eaf8ef';
+    s.style.color = '#176b38';
+    s.textContent = 'Test successful: ' + data.message;
+
+  } catch (error) {
+    s.style.background = '#fff1f1';
+    s.style.color = '#a32626';
+    s.textContent = 'Could not submit test order. Please try again.';
+    console.error('Order error:', error);
+  }
 }
 function trackOrder(){
  const id=document.getElementById('orderId').value.trim();
