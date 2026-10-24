@@ -99,7 +99,7 @@ function selectBundle(size,price){
  document.getElementById('sumPrice').textContent=price;
  document.getElementById('checkout').scrollIntoView({behavior:'smooth'});
 }
-function placeOrder(){
+async function placeOrder() {
  const phone=document.getElementById('phone').value.trim();
  const s=document.getElementById('checkoutStatus');
  s.style.display='block';
